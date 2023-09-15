@@ -33,6 +33,34 @@ function contarTiempo(){
         if(timer==0){
             clearInterval(tiempoRegresivoId);
             bloquearTarjetas();
+            console.log("LOST")
+            Swal.fire({
+                title: 'You Lost!',
+                text: 'Try Again!',
+                icon: 'error',
+                html: `
+                    <div style="color: red; font-size: 24px;">
+                        Better luck next time! 😢🥤
+                    </div>
+                    <div style="font-size: 24px;">
+                        Correct: ${aciertos} 😢💪
+                    </div>
+                    <div style="font-size: 24px;">
+                        Time: ⏱️😢${timerInicial - timer} seconds
+                    </div>
+                    <div style="font-size: 24px;">
+                        Moves: ${movimientos} 😢👎
+                    </div>
+                `,
+                confirmButtonText: 'Close', // Cambio del texto del botón de confirmación
+                customClass: {
+                    confirmButton: 'btn-red',
+                },
+                buttonsStyling: false,
+                allowOutsideClick: false,
+            });
+            
+            //
         }
     },1000)
 }
@@ -103,6 +131,36 @@ function destapar(id){
                 mostrarAciertos.innerHTML =  `Correct: ${aciertos} 🥳​💪​`;
                 mostrarTiempo.innerHTML = `Awesome! Only🔥​🥳​${timerInicial - timer} seconds`;
                 mostrarMovimientos.innerHTML = `Moves: ${movimientos} 👍​😎​`;
+
+               
+                Swal.fire({
+                    title: 'Congratulations!',
+                    text: 'You Won!',
+                    icon: 'success',
+                    html: `
+                        <div style="color: red; font-size: 24px;">
+                            You're a <strong>Coca-Cola</strong> champion! 🏆🥤
+                        </div>
+                        <div style="font-size: 24px;">
+                            Correct: ${aciertos} 🥳💪
+                        </div>
+                        <div style="font-size: 24px;">
+                            Awesome! Only 🔥🥳${timerInicial - timer} seconds
+                        </div>
+                        <div style="font-size: 24px;">
+                            Moves: ${movimientos} 👍😎
+                        </div>
+                    `,
+                    confirmButtonText: 'Close', // Cambio del texto del botón de confirmación
+                    customClass: {
+                        confirmButton: 'btn-red', // Clase CSS personalizada para el botón de confirmación
+                    },
+                    buttonsStyling: false, // Desactivar los estilos predeterminados de SweetAlert2 para personalizar el botón
+                    allowOutsideClick: false,
+                });
+
+                
+                
             }
 
         }else{
@@ -153,6 +211,10 @@ function resetearJuego() {
   });
 
 
-  document.addEventListener("contextmenu", function(e) {
+/*   document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
-});
+}); */
+
+
+
+

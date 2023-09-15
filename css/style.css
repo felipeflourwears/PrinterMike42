@@ -108,3 +108,11 @@ a{
 .imgcoca{
     margin-left: 20px;
 }
+/* CSS personalizado */
+.btn-red {
+    background-color: red !important;
+    color: white !important;
+    font-size: 30px !important;
+    padding: 10px !important;
+    border: none !important;
+}

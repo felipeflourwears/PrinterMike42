@@ -15,25 +15,31 @@ use Mike42\Escpos\EscposImage;
  $printer = new Printer($connector);
 
 try {
-   
-    $tux = EscposImage::load("coca.jpg", false);
-    $printer -> bitImage($tux);
+
 
    
 
-    $printer->setJustification(Printer::JUSTIFY_CENTER);
-
-    $printer->setTextSize(2, 2);
+    $printer->setTextSize(3, 3);
     $printer->text("Coca Cola\n");
-    $printer->setTextSize(1, 1);
-    $printer->text("¡Felicidades!\n");
-    $printer->text("Disfruta de esta increible promocion.\n");
-    $printer->text("Presenta este ticket en caja y recibe 20% de descuento en tu compra.\n");
+    $printer->text("\n");
     $printer->text("\n");
     $printer->text("\n");
     
-    $printer -> bitImage($tux, Printer::IMG_DOUBLE_WIDTH | Printer::IMG_DOUBLE_HEIGHT);
-    $printer -> text("Large Tux in correct proportion (bit image).\n");
+    $printer->text("\n");
+    $printer->setTextSize(1, 1);
+    $printer->text("Congratulations!\n"); // Cambiar el mensaje a inglés
+    $printer->text("Enjoy this amazing promotion.\n"); // Cambiar el mensaje a inglés
+    $printer->text("\n");
+    $printer->text("\n");
+    $printer->text("\n");
+    $printer->text("Present this ticket at the checkout and receive a 20% discount on your purchase.\n"); // Cambiar el mensaje a inglés
+    $printer->text("\n");
+    $printer->text("\n");
+    $printer->text("\n");
+    $printer->text("\n");
+    $printer->text("\n");
+    $printer->text("\n");
+    
     
 
 

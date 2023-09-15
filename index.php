@@ -6,6 +6,23 @@
     <title>Memory Game CocaCola</title>
     <link rel="icon" href="img/coca.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .btn-red {
+        background-color: rgba(214,36,60,1) !important;
+        color: white !important;
+        font-size: 30px !important;
+        padding: 10px !important;
+        width: 100px;
+        height: 50px;
+        border: transparent !important;
+        transition: background-color 0.3s ease; /* Agregar transición para suavizar el efecto de cambio de color */
+        }
+
+        /* Estilo de hover */
+        .btn-red:hover {
+            background-color: rgb(214, 36, 60) !important; /* Cambiar el color de fondo en hover */
+        }
+    </style>
 </head>
 <body><br>
     <h1 class="coca">
@@ -63,7 +80,7 @@
     </main>
     
     
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
