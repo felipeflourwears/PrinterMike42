@@ -6,8 +6,8 @@ let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let timer = 60;
-let timerInicial = 60;
+let timer = 80;
+let timerInicial = 80;
 let tiempoRegresivoId = null;
 
 let mostrarMovimientos = document.getElementById("movimientos");
@@ -177,7 +177,27 @@ function destapar(id){
     }
 }
 
+
+// Función para ocultar todas las cartas
+function ocultarTodasLasCartas() {
+    for (let i = 0; i <= 15; i++) {
+        let tarjeta = document.getElementById(i);
+        tarjeta.innerHTML = '';
+        tarjeta.disabled = false;
+    }
+}
+
+// Función para barajar las cartas sin perder la correspondencia
+function barajarCartas() {
+    numbers = numbers.sort(() => Math.random() - 0.5);
+    ocultarTodasLasCartas(); // Oculta todas las cartas al barajar
+}
+
+// Función para resetear el juego
 function resetearJuego() {
+    // Baraja las cartas sin perder la correspondencia
+    barajarCartas();
+
     // Reiniciar variables
     tarjetasDestapadas = 0;
     tarjeta1 = null;
@@ -188,29 +208,20 @@ function resetearJuego() {
     aciertos = 0;
     temporizador = false;
     timer = timerInicial;
-  
+
     // Detener y reiniciar el temporizador
     clearInterval(tiempoRegresivoId);
     mostrarTiempo.innerHTML = `Time: ${timer} seconds`;
-  
-    // Habilitar todas las tarjetas
-    for (let i = 0; i <= 15; i++) {
-      let tarjeta = document.getElementById(i);
-      tarjeta.innerHTML = ''; // Limpiar contenido
-      tarjeta.disabled = false; // Habilitar tarjeta
-    }
-  
+
     // Restablecer las estadísticas
     mostrarMovimientos.innerHTML = `Moves: ${movimientos}`;
     mostrarAciertos.innerHTML = `Correct: ${aciertos}`;
-  }
-  
-  // Agrega el event listener para recargar la página
-  reloadButton.addEventListener("click", function() {
-    resetearJuego(); // Llama a la función de reinicio al hacer clic en el botón de recarga
-  });
+}
 
-
+// Agrega el event listener para recargar la página
+reloadButton.addEventListener("click", function () {
+    resetearJuego();
+});
 /*   document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 }); */

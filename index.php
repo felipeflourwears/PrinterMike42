@@ -61,7 +61,7 @@
      <section class="section2">
         <div class="horizontal-container">
             <h2 id="aciertos" class="estadisticas">Correct: 0</h2>
-            <h2 id="t-restante" class="estadisticas">Time: 60 seconds</h2>
+            <h2 id="t-restante" class="estadisticas">Time: 80 seconds</h2>
             <h2 id="movimientos" class="estadisticas">Moves: 0</h2>
             <button class="reloadButton" id="reloadButton">Try Again</button>
         </div>
