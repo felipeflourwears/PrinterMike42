@@ -35,3 +35,28 @@ Puedes realizar una impresión de prueba con el siguiente comando. Asegúrate de
 sudo echo "Hello" >> /dev/usb/lp0
 ```
 Este comando enviará el mensaje al dispositivo de impresión y deberías ver la impresión de la prueba físicamente en la impresora.
+
+## Rules Configuración por Default
+
+O también puedes crear reglas que tepermitan ya interactuar de manera que al iniciar el sistema operativo ya no hagas uso de sudo
+Agrega reglas udev (opcional): Si necesitas cambiar los permisos de manera persistente, puedes crear una regla udev. Las reglas udev son utilizadas por el sistema operativo para gestionar dispositivos y permisos. Crea un archivo de regla en /etc/udev/rules.d/ con una extensión .rules y define las reglas necesarias. Por ejemplo:
+```bash
+sudo nano /etc/udev/rules.d/99-usb-printer.rules
+
+```
+
+Y dentro de ese archivo, puedes agregar una regla como esta:
+```bash
+SUBSYSTEM=="usb", ATTRS{idVendor}=="XXXX", ATTRS{idProduct}=="XXXX", MODE="0666"
+
+```
+
+Donde XXXX debe ser reemplazado con el ID del fabricante y el ID del producto de tu impresora. Puedes encontrar esta información ejecutando el comando lsusb en una terminal.
+
+Recargar las reglas udev: Después de crear la regla, debes recargar las reglas udev para que surtan efecto:
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+Reiniciar la computadora: Después de realizar estos cambios, reinicia tu computadora y verifica si los permisos se aplican correctamente a los dispositivos /dev/usb/lpX.
