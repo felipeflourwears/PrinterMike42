@@ -60,3 +60,8 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 Reiniciar la computadora: Después de realizar estos cambios, reinicia tu computadora y verifica si los permisos se aplican correctamente a los dispositivos /dev/usb/lpX.
+
+
+## Ticket Output
+
+<img src="ticket.jpg" alt="Ticket" width="350" height="150">
