@@ -64,4 +64,4 @@ Reiniciar la computadora: Después de realizar estos cambios, reinicia tu comput
 
 ## Ticket Output
 
-<img src="ticket.jpg" alt="Ticket" width="350" height="150">
+<img src="ticket.jpg" alt="Ticket" width="700" height="150">
